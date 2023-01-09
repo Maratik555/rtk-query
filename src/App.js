@@ -1,16 +1,15 @@
-import {useGetGoodsQuery, useAddProductMutation, useDeleteProductMutation } from './redux'
+import {useGetGoodsQuery, useAddProductMutation, useDeleteProductMutation} from './redux'
 import {useState} from 'react'
-
 
 function App() {
 	const [count, setCount] = useState('')
 	const [newProduct, setNewProduct] = useState('')
 	const {data = [], isLoading} = useGetGoodsQuery(count)
 	const [addProduct, {isError}] = useAddProductMutation()
-	const [deleteProduct] = useDeleteProductMutation();
+	const [deleteProduct] = useDeleteProductMutation()
 	
 	const handleDeleteProduct = async (id) => {
-		await deleteProduct(id).unwrap();
+		await deleteProduct(id).unwrap()
 	}
 	
 	const handleAddProduct = async () => {
@@ -47,5 +46,4 @@ function App() {
 		</div>
 	)
 }
-
 export default App
